@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - FocusTap</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 28px; color: #d32f2f; margin-bottom: 8px; }
+        .date { color: #64748b; font-size: 14px; margin-bottom: 32px; }
+        h2 { font-size: 20px; margin: 32px 0 12px; color: #1e293b; }
+        h3 { font-size: 16px; margin: 16px 0 8px; }
+        p, li { color: #334155; font-size: 15px; margin-bottom: 8px; }
+        ul { padding-left: 20px; margin-bottom: 16px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; font-size: 14px; }
+        th { background: #f1f5f9; font-weight: 600; }
+        .box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0 24px;
+        }
+        .box p { margin: 4px 0; font-size: 14px; }
+        .box strong { color: #b91c1c; }
+        a { color: #d32f2f; }
+        footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #94a3b8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for FocusTap</h1>
+        <p class="date">Last updated: August 4, 2026</p>
+
+        <h2>Summary</h2>
+        <p>FocusTap does not collect, store, or share any personal data. Everything stays on your device.</p>
+
+        <h2>Data We Don't Collect</h2>
+        <ul>
+            <li><strong>Personal information</strong> — No name, email, phone number, or account details</li>
+            <li><strong>App usage data</strong> — Which apps you open is detected in-memory only and never saved, logged, or transmitted</li>
+            <li><strong>Location data</strong> — No GPS or location tracking</li>
+            <li><strong>Device identifiers</strong> — No device ID, advertising ID, or IMEI access</li>
+            <li><strong>Analytics or crash reports</strong> — No Firebase, no Crashlytics, no analytics SDKs</li>
+            <li><strong>Cookies or tracking</strong> — No webviews, no hidden trackers</li>
+        </ul>
+
+        <h2>Data Stored on Your Device</h2>
+        <p>FocusTap stores the following locally using Hive (on-device database):</p>
+        <ul>
+            <li><strong>Focus sessions</strong> — Your self-reported intention text, session duration, and timestamp</li>
+            <li><strong>Protected apps list</strong> — The apps you've chosen to monitor</li>
+            <li><strong>App settings</strong> — Your preferences and setup state</li>
+        </ul>
+        <p>This data is stored <strong>exclusively on your device</strong> and is never uploaded to any server. It is deleted when you uninstall the app.</p>
+
+        <h2>Permissions Explained</h2>
+        <table>
+            <tr><th>Permission</th><th>Purpose</th></tr>
+            <tr><td>Accessibility Service</td><td>Detects when you open a protected app — used only to trigger the focus overlay in-memory</td></tr>
+            <tr><td>Usage Access</td><td>Monitors which app is in the foreground — processed locally, never stored</td></tr>
+            <tr><td>Appear on Top</td><td>Shows the floating focus intention overlay</td></tr>
+            <tr><td>Notifications</td><td>Displays the keep-alive notification so the app can monitor in the background</td></tr>
+            <tr><td>Foreground Service</td><td>Required by Android to run the overlay and monitoring services</td></tr>
+        </table>
+
+        <h2>Accessibility Service Details</h2>
+        <div class="box">
+            <p><strong>What data is accessed:</strong> Only the package name of the app currently in the foreground (e.g. "com.instagram.android").</p>
+            <p><strong>How the data is used:</strong> To detect when you open a protected app and trigger the intention overlay in real time. Data is processed in memory only — never saved, logged, or transmitted.</p>
+            <p><strong>What is NOT accessed:</strong> No keystrokes, no screen content, no passwords, no personal information. The service only monitors app-switch events.</p>
+            <p><strong>Technical details:</strong> <code>canRetrieveWindowContent</code> is set to <code>false</code>. Only <code>TYPE_WINDOW_STATE_CHANGED</code> and <code>TYPE_WINDOWS_CHANGED</code> events are monitored.</p>
+        </div>
+
+        <h2>Third-Party Services</h2>
+        <p>FocusTap does <strong>not</strong> use any third-party services, SDKs, or libraries that collect or transmit data. All dependencies are offline-only.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>FocusTap is not directed at children under 13. We do not knowingly collect data from anyone under 13.</p>
+
+        <h2>Your Rights</h2>
+        <p>Since all data is stored locally on your device, you have full control:</p>
+        <ul>
+            <li><strong>Access</strong> — All focus sessions and settings are visible within the app</li>
+            <li><strong>Delete</strong> — Clear session history or remove protected apps at any time</li>
+            <li><strong>Revoke permissions</strong> — Disable any permission in Android Settings</li>
+            <li><strong>Uninstall</strong> — Removing the app deletes all stored data</li>
+        </ul>
+
+        <h2>Changes to This Policy</h2>
+        <p>If this policy changes, the updated version will be posted here with a new "Last updated" date.</p>
+
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:kafikustori24@gmail.com">kafikustori24@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/kafi-kustori/focustap">github.com/kafi-kustori/focustap</a></p>
+
+        <footer>&copy; 2026 FocusTap. All rights reserved.</footer>
+    </div>
+</body>
+</html>
