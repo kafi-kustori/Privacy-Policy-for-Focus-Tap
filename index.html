@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - FocusTap</title>
+    <title>Privacy Policy - Focus Tap</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -20,7 +20,7 @@
         p, li { color: #334155; font-size: 15px; margin-bottom: 8px; }
         ul { padding-left: 20px; margin-bottom: 16px; }
         table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
-        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; font-size: 14px; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; font-size: 14px; vertical-align: top; }
         th { background: #f1f5f9; font-weight: 600; }
         .box {
             background: #fef2f2;
@@ -37,61 +37,64 @@
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy for FocusTap</h1>
-        <p class="date">Last updated: August 4, 2026</p>
+        <h1>Privacy Policy for Focus Tap</h1>
+        <p class="date">Last updated: October 23, 2026</p>
 
         <h2>Summary</h2>
-        <p>FocusTap does not collect, store, or share any personal data. Everything stays on your device.</p>
+        <p>Focus Tap does not collect or share any personal data. The app has no internet access, so nothing you do in it can leave your device. Everything it stores stays on your phone and is deleted when you uninstall the app.</p>
 
         <h2>Data We Don't Collect</h2>
         <ul>
-            <li><strong>Personal information</strong> — No name, email, phone number, or account details</li>
-            <li><strong>App usage data</strong> — Which apps you open is detected in-memory only and never saved, logged, or transmitted</li>
-            <li><strong>Location data</strong> — No GPS or location tracking</li>
-            <li><strong>Device identifiers</strong> — No device ID, advertising ID, or IMEI access</li>
-            <li><strong>Analytics or crash reports</strong> — No Firebase, no Crashlytics, no analytics SDKs</li>
-            <li><strong>Cookies or tracking</strong> — No webviews, no hidden trackers</li>
+            <li><strong>Personal information</strong> — No name, email, phone number, account or sign-in</li>
+            <li><strong>Data sent off your device</strong> — None. Focus Tap does not request the internet permission and has no server.</li>
+            <li><strong>Location data</strong> — No GPS or location access</li>
+            <li><strong>Device identifiers</strong> — No device ID, advertising ID or IMEI access</li>
+            <li><strong>Analytics, ads or crash reports</strong> — No ads, no Firebase, no Crashlytics, no analytics SDKs</li>
+            <li><strong>Cookies or tracking</strong> — No webviews, no trackers</li>
         </ul>
 
         <h2>Data Stored on Your Device</h2>
-        <p>FocusTap stores the following locally using Hive (on-device database):</p>
+        <p>Focus Tap stores the following only on your device, in a local database (Hive):</p>
         <ul>
-            <li><strong>Focus sessions</strong> — Your self-reported intention text, session duration, and timestamp</li>
-            <li><strong>Protected apps list</strong> — The apps you've chosen to monitor</li>
-            <li><strong>App settings</strong> — Your preferences and setup state</li>
+            <li><strong>Focus sessions</strong> — For each time you set an intention: the protected app it was for (its name and package name), the intention you typed, the time you promised, when the session started and ended, and whether you kept to your time. This is what the History screen shows.</li>
+            <li><strong>Protected apps list</strong> — The apps you chose to protect</li>
+            <li><strong>Last intention per app</strong> — So the card can suggest your previous reason</li>
+            <li><strong>Settings</strong> — Reminder style (bubble or notification) and setup state</li>
         </ul>
-        <p>This data is stored <strong>exclusively on your device</strong> and is never uploaded to any server. It is deleted when you uninstall the app.</p>
+        <p>This data is <strong>never uploaded</strong> anywhere. You can delete single sessions or clear all history in the app, and uninstalling Focus Tap deletes everything.</p>
 
         <h2>Permissions Explained</h2>
         <table>
-            <tr><th>Permission</th><th>Purpose</th></tr>
-            <tr><td>Accessibility Service</td><td>Detects when you open a protected app — used only to trigger the focus overlay in-memory</td></tr>
-            <tr><td>Usage Access</td><td>Monitors which app is in the foreground — processed locally, never stored</td></tr>
-            <tr><td>Appear on Top</td><td>Shows the floating focus intention overlay</td></tr>
-            <tr><td>Notifications</td><td>Displays the keep-alive notification so the app can monitor in the background</td></tr>
-            <tr><td>Foreground Service</td><td>Required by Android to run the overlay and monitoring services</td></tr>
+            <tr><th>Permission</th><th>Purpose</th><th>Needed?</th></tr>
+            <tr><td>Accessibility Service</td><td>Tells Focus Tap which app is opened, so it can show the intention card for apps you chose to protect. It reads only the app's package name.</td><td>Yes, for protection</td></tr>
+            <tr><td>Display over other apps</td><td>Shows the intention card and the floating bubble on top of the app you opened</td><td>Yes, for protection</td></tr>
+            <tr><td>Usage access</td><td>Optional double-check from Android's usage record that no app opening was missed. Processed on your device and not stored.</td><td>Optional</td></tr>
+            <tr><td>Notifications</td><td>If you choose the notification reminder style: shows your intention with a countdown, and an alert when your time is up</td><td>Optional</td></tr>
+            <tr><td>Foreground service</td><td>Required by Android while the intention card or bubble is on screen</td><td>Automatic</td></tr>
         </table>
+        <p>Focus Tap asks before each of these is turned on and explains why. You can decline any of them and still use the app; features that need a declined permission will not work until you turn it on.</p>
 
         <h2>Accessibility Service Details</h2>
         <div class="box">
-            <p><strong>What data is accessed:</strong> Only the package name of the app currently in the foreground (e.g. "com.instagram.android").</p>
-            <p><strong>How the data is used:</strong> To detect when you open a protected app and trigger the intention overlay in real time. Data is processed in memory only — never saved, logged, or transmitted.</p>
-            <p><strong>What is NOT accessed:</strong> No keystrokes, no screen content, no passwords, no personal information. The service only monitors app-switch events.</p>
-            <p><strong>Technical details:</strong> <code>canRetrieveWindowContent</code> is set to <code>false</code>. Only <code>TYPE_WINDOW_STATE_CHANGED</code> and <code>TYPE_WINDOWS_CHANGED</code> events are monitored.</p>
+            <p><strong>What data is accessed:</strong> Only the package name of the app currently in the foreground (for example "com.instagram.android").</p>
+            <p><strong>How the data is used:</strong> To notice when you open an app you chose to protect and show the intention card. Apps you did not protect are checked in memory and forgotten. When you set an intention, the protected app's name is saved with that session on your device so History can show it. Nothing is ever sent off your device.</p>
+            <p><strong>What is NOT accessed:</strong> No screen content, no keystrokes, no passwords, no messages, no personal information.</p>
+            <p><strong>Technical details:</strong> <code>canRetrieveWindowContent</code> is <code>false</code>, and only <code>TYPE_WINDOW_STATE_CHANGED</code> events are received. Release builds of the app write no app names to the system log.</p>
+            <p><strong>Your choice:</strong> You are asked for consent before turning it on, and you can turn it off at any time in Settings &gt; Accessibility.</p>
         </div>
 
-        <h2>Third-Party Services</h2>
-        <p>FocusTap does <strong>not</strong> use any third-party services, SDKs, or libraries that collect or transmit data. All dependencies are offline-only.</p>
+        <h2>Third-Party Libraries</h2>
+        <p>Focus Tap is built with Flutter and uses these open-source libraries, all of which work offline and send no data: Hive and hive_flutter (local storage), flutter_overlay_window (the card and bubble), path_provider (finding the app's storage folder), uuid (session IDs) and fl_chart (History charts). Focus Tap uses no third-party services or SDKs that collect or transmit data.</p>
 
         <h2>Children's Privacy</h2>
-        <p>FocusTap is not directed at children under 13. We do not knowingly collect data from anyone under 13.</p>
+        <p>Focus Tap is not directed at children under 13, and it collects no data from anyone.</p>
 
         <h2>Your Rights</h2>
-        <p>Since all data is stored locally on your device, you have full control:</p>
+        <p>Since all data is stored only on your device, you are in full control:</p>
         <ul>
-            <li><strong>Access</strong> — All focus sessions and settings are visible within the app</li>
-            <li><strong>Delete</strong> — Clear session history or remove protected apps at any time</li>
-            <li><strong>Revoke permissions</strong> — Disable any permission in Android Settings</li>
+            <li><strong>Access</strong> — All sessions and settings are visible in the app</li>
+            <li><strong>Delete</strong> — Delete single sessions or clear all history in History, and remove protected apps at any time</li>
+            <li><strong>Revoke permissions</strong> — Turn off any permission in Android Settings</li>
             <li><strong>Uninstall</strong> — Removing the app deletes all stored data</li>
         </ul>
 
@@ -102,7 +105,7 @@
         <p>Email: <a href="mailto:kafikustori24@gmail.com">kafikustori24@gmail.com</a></p>
         <p>GitHub: <a href="https://github.com/kafi-kustori/focustap">github.com/kafi-kustori/focustap</a></p>
 
-        <footer>&copy; 2026 FocusTap. All rights reserved.</footer>
+        <footer>&copy; 2026 Focus Tap. All rights reserved.</footer>
     </div>
 </body>
 </html>
